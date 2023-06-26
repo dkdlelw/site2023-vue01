@@ -2,7 +2,7 @@
   <ContTitle title="images" />
   <UnsplashSlider />
   <UnsplashSearch />
-  <UnsplashTag />
+  <UnsplashTag @search="SearchImages" />
   <UnsplashCont :images="images" />
 </template>
 
@@ -37,10 +37,21 @@ export default {
         .catch((error) => console.log("error", error));
     };
     TopImages();
+    const SearchImages = async (query) => {
+      await fetch(
+        `https://api.unsplash.com/search/photos?client_id=UTTBntve3N_wMf-_VWO7RRnrOt3E4s3L9crRuJtSH1k&per_page=30&q=${query}`
+      )
+        .then((response) => response.json())
+        .then((result) => {
+          images.value = result.results;
+        })
+        .catch((error) => console.log("error", error));
+    };
 
     return {
       images,
       TopImages,
+      SearchImages,
     };
   },
 };

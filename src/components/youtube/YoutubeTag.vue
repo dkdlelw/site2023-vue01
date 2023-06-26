@@ -27,11 +27,20 @@ export default {
   },
   methods: {
     btnClick(name) {
-      this.onSearch(name);
+      if (this.$props.onSearch) {
+        this.$props.onSearch(name);
+      }
+    },
+  },
+  props: {
+    onSearch: {
+      type: Function,
+      required: true,
     },
   },
 };
 </script>
+
 <style lang="scss">
 .youtube__tag {
   div {
