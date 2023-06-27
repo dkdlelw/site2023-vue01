@@ -1,5 +1,5 @@
 <template>
-  <footer id="footer" class="footer__wrap SebangGothic4 section bg-blue">
+  <footer id="footer" class="footer__wrap SebangGothic4 section">
     <div class="footer__inner container">
       <div class="footer__text">
         <h5>dkdlelw</h5>
